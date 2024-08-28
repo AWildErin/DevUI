@@ -1,0 +1,56 @@
+diff --git a/Source/ImGui/Private/ImGuiInputHandler.cpp b/Source/ImGui/Private/ImGuiInputHandler.cpp
+index 67cc6671e6760ac6ab96d9b547f9091e87163d04..18e95f96566486e43d8433dcfa12923086caa1d4 100644
+--- a/Source/ImGui/Private/ImGuiInputHandler.cpp
++++ b/Source/ImGui/Private/ImGuiInputHandler.cpp
+@@ -60,6 +60,12 @@ FReply UImGuiInputHandler::OnKeyDown(const FKeyEvent& KeyEvent)
+ 		}
+ 
+ #if WITH_EDITOR
++		// Allow any function keys within the editor
++		if (IsFunctionKeyEvent(KeyEvent))
++		{
++			return ToReply(false);
++		}
++
+ 		// If there is no active ImGui control that would get precedence and this key event is bound to a stop play session
+ 		// command, then ignore that event and let the command execute.
+ 		if (!HasImGuiActiveItem() && IsStopPlaySessionEvent(KeyEvent))
+@@ -277,6 +283,20 @@ bool UImGuiInputHandler::IsStopPlaySessionEvent(const FKeyEvent& KeyEvent) const
+ 
+ 	return false;
+ }
++
++bool UImGuiInputHandler::IsFunctionKeyEvent(const FKeyEvent& KeyEvent) const
++{
++	FKey Key = KeyEvent.GetKey();
++
++	if (Key == EKeys::F1 || Key == EKeys::F2 || Key == EKeys::F3 || Key == EKeys::F4 ||
++		Key == EKeys::F5 || Key == EKeys::F6 || Key == EKeys::F7 || Key == EKeys::F8 ||
++		Key == EKeys::F9 || Key == EKeys::F10 || Key == EKeys::F11 || Key == EKeys::F12)
++	{
++		return true;
++	}
++
++	return false;
++}
+ #endif // WITH_EDITOR
+ 
+ namespace
+diff --git a/Source/ImGui/Public/ImGuiInputHandler.h b/Source/ImGui/Public/ImGuiInputHandler.h
+index 093ea63206976c07cc065dc6d1c95f7475463251..1e8f1642ef2519a1d5d77a8203ada9566ec36a91 100644
+--- a/Source/ImGui/Public/ImGuiInputHandler.h
++++ b/Source/ImGui/Public/ImGuiInputHandler.h
+@@ -151,6 +151,13 @@ protected:
+ 	 * @returns True, if this key event can stop PIE session.
+ 	 */
+ 	bool IsStopPlaySessionEvent(const FKeyEvent& KeyEvent) const;
++
++	/**
++	* Checks whether this key event is a function key.
++	* @param KeyEvent - Key event to test.
++	* @returns True, if this key is a function key.
++	*/
++	bool IsFunctionKeyEvent(const FKeyEvent& KeyEvent) const;
+ #endif
+ 
+ 	/**
