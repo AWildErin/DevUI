@@ -1,9 +1,8 @@
 # DevUI
-DevUI is a plugin based around [UnrealImGui](https://github.com/benui-dev/UnrealImGui) I created to quickly be able to make ImGui windows without much hassle.
-Please note this plugin may work with the [original version of UnrealImGui](https://github.com/segross/UnrealImGui) but I personally haven't used this.
+DevUI is a plugin, based around a fork [UnrealImGui](https://github.com/benui-dev/UnrealImGui), that I created to be able to make ImGui windows without much hassle quickly.
+This plugin can use the [original version of UnrealImGui](https://github.com/segross/UnrealImGui), this allows the DevUI plugin to work on Unreal 4.27.
 
-If there are any bugs or things that don't make sense, please open an issue! This plugin was mainly created for my own personal use cases as such the code might not be the best quality or best practices. But I'm open sourcing it in the hopes it might be useful to someone else.
-
+If there are any bugs or things that don't make sense, please open an issue! This plugin was mainly created for my use cases as such the code might not be the best quality or best practices. But I'm open sourcing it in the hopes it might be useful to someone else.
 
 ## How to use
 
