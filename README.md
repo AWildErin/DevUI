@@ -10,7 +10,7 @@ If there are any bugs or things that don't make sense, please open an issue! Thi
 A menu bar is created alongside this plugin which is rendered when `ImGui.ToggleInput` is active. You can set a hotkey to enable this by adding this to your DefaultInput.ini. Keep in mind this keybind will not work in shipping builds.
 ```ini
 [/Script/Engine.PlayerInput]
-DebugExecBindings=(Key=F6,Command="ImGui.ToggleInput")
++DebugExecBindings=(Key=F6,Command="ImGui.ToggleInput")
 ```
 
 ### Making a window
