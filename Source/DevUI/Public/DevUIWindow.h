@@ -21,9 +21,9 @@ public:
 	~UDevUIWindow() = default;
 
 	/**
-	 * Draws the window if enabled
-	 * @returns True to indicate this window should remain open
-	 */
+		Draws the window if enabled
+		@returns True to indicate this window should remain open
+	*/
 	virtual bool Draw(UWorld* World);
 
 	/**  Called when draw state is changed */

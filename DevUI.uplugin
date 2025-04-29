@@ -6,7 +6,7 @@
 	"Description": "",
 	"Category": "Debug",
 	"CreatedBy": "AWildErin",
-	"CreatedByURL": "",
+	"CreatedByURL": "https://github.com/awilderin",
 	"DocsURL": "",
 	"MarketplaceURL": "",
 	"SupportURL": "",
@@ -22,7 +22,7 @@
 	],
 	"Plugins": [
 		{
-			"Comment": "Use UnrealImGui from https://git.awilderin.tk/unreal/external/unrealimgui",
+			"Comment": "Use UnrealImGui from https://github.com/benui-dev/UnrealImGui",
 			"Name": "ImGui",
 			"Enabled": true
 		}
